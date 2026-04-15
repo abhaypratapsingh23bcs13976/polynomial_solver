@@ -18,5 +18,5 @@ COPY . .
 # Expose API port
 EXPOSE 5000
 
-# Run the application
-CMD ["python", "app.py"]
+# Run the application using Gunicorn for production
+CMD gunicorn --bind 0.0.0.0:${PORT:-5000} app:app
